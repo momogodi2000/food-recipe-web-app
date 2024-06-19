@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ category.name }}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>{{ category.name }}</h1>
+        <ul>
+            {% for recipe in recipes %}
+                <li>
+                    <h2>{{ recipe.title }}</h2>
+                    <p>{{ recipe.description }}</p>
+                    <p>{{ recipe.ingredients }}</p>
+                    <p>{{ recipe.instructions }}</p>
+                    <img src="{{ recipe.image.url }}" alt="{{ recipe.title }}" class="img-thumbnail">
+                </li>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'home' %}">Back to home</a>
+    </div>
+</body>
+</html>

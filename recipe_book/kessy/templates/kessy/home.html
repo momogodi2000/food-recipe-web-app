@@ -1,0 +1,203 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recipe Book</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="{% url 'home' %}">Recipe Book</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <span class="navbar-text">Welcome, {{ user.username }}!</span>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                    </li>
+                    {% if user.is_superuser %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'admin_panel' %}">Admin Panel</a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'user_panel' %}">User Panel</a>
+                        </li>
+                    {% endif %}
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'login' %}">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'register' %}">Register</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero text-light text-center py-5">
+        <div class="container">
+            <h1>Discover Delicious Recipes</h1>
+            <p class="lead">Explore new cuisines, learn cooking techniques, and find easy weeknight meals</p>
+            <a href="#categories" class="btn btn-primary">Explore Recipes</a>
+        </div>
+    </section>
+
+    <div class="container mt-5 fade-in" id="categories">
+        <h1>Categories</h1>
+        
+        <!-- Appetizers & Snacks -->
+        <div class="category-section">
+            <h2 class="category-title">Appetizers & Snacks</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="{% static 'img/appetizers_snacks.jpg' %}" class="card-img-top img-fluid" alt="Appetizer">
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="#">Bruschetta</a></h5>
+                            <p class="card-text">Toasted bread with a topping of tomatoes, garlic, and basil.</p>
+                            <a href="#" class="btn btn-primary">View Recipe</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Beverages & Cocktails -->
+        <div class="category-section">
+            <h2 class="category-title">Beverages & Cocktails</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="{% static 'img/beverages_cocktails.jpeg' %}" class="card-img-top img-fluid" alt="Beverage">
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="#">Mojito</a></h5>
+                            <p class="card-text">Refreshing minty cocktail with lime and rum.</p>
+                            <a href="#" class="btn btn-primary">View Recipe</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Breads & Breakfasts -->
+        <div class="category-section">
+            <h2 class="category-title">Breads & Breakfasts</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="{% static 'img/breads_breakfasts.jpeg' %}" class="card-img-top img-fluid" alt="Breakfast">
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="#">Pancakes</a></h5>
+                            <p class="card-text">Fluffy pancakes with syrup and fresh berries.</p>
+                            <a href="#" class="btn btn-primary">View Recipe</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cakes & Frostings -->
+        <div class="category-section">
+            <h2 class="category-title">Cakes & Frostings</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="{% static 'img/cakes_frostings.jpeg' %}" class="card-img-top img-fluid" alt="Cake">
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="#">Chocolate Cake</a></h5>
+                            <p class="card-text">Rich and moist chocolate cake with creamy frosting.</p>
+                            <a href="#" class="btn btn-primary">View Recipe</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Casseroles & Skillets -->
+        <div class="category-section">
+            <h2 class="category-title">Casseroles & Skillets</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="{% static 'img/casseroles_skillets.jpeg' %}" class="card-img-top img-fluid" alt="Casserole">
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="#">Chicken Casserole</a></h5>
+                            <p class="card-text">Hearty chicken casserole with vegetables and cheese.</p>
+                            <a href="#" class="btn btn-primary">View Recipe</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Condiments, Spreads & Relishes -->
+        <div class="category-section">
+            <h2 class="category-title">Condiments, Spreads & Relishes</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="{% static 'img/condiments_spreads_relishes.jpeg' %}" class="card-img-top img-fluid" alt="Condiment">
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="#">Hummus</a></h5>
+                            <p class="card-text">Smooth and creamy chickpea spread with tahini and garlic.</p>
+                            <a href="#" class="btn btn-primary">View Recipe</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cookies & Candies -->
+        <div class="category-section">
+            <h2 class="category-title">Cookies & Candies</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="{% static 'img/cookies_candies.jpeg' %}" class="card-img-top img-fluid" alt="Cookies">
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="#">Chocolate Chip Cookies</a></h5>
+                            <p class="card-text">Classic chocolate chip cookies with a chewy center.</p>
+                            <a href="#" class="btn btn-primary">View Recipe</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Desserts -->
+        <div class="category-section">
+            <h2 class="category-title">Desserts</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="{% static 'img/desserts.jpeg' %}" class="card-img-top img-fluid" alt="Dessert">
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="#">Tiramisu</a></h5>
+                            <p class="card-text">Classic Italian dessert with layers of coffee-soaked ladyfingers and mascarpone cream.</p>
+                            <a href="#" class="btn btn-primary">View Recipe</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-center">
+        <p>&copy; 2024 Recipe Book. All rights reserved.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

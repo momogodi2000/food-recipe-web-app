@@ -1,0 +1,42 @@
+<!-- recipe_list.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recipe List</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-4">
+        <h1>Recipe List</h1>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Ingredients</th>
+                    <th>Instructions</th>
+                    <th>Category</th>
+                    <th>Image</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for recipe in recipes %}
+                <tr>
+                    <td>{{ recipe.title }}</td>
+                    <td>{{ recipe.description }}</td>
+                    <td>{{ recipe.ingredients }}</td>
+                    <td>{{ recipe.instructions }}</td>
+                    <td>{{ recipe.category.name }}</td>
+                    <td>
+                        {% if recipe.image %}
+                        <img src="{{ recipe.image.url }}" class="img-thumbnail" style="max-width: 100px;">
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="{% url 'user_panel' %}" class="btn btn-secondary mt-3">Return to User Panel</a>
+    </div>
+</body>
+</html>

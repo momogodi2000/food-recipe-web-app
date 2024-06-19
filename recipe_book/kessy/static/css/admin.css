@@ -1,0 +1,54 @@
+/* admin.css */
+
+.hero {
+    background: url('/static/img/hero.jpg') no-repeat center center;
+    background-size: cover;
+    color: white;
+    padding: 100px 0;
+}
+
+.feature img {
+    max-width: 50px;
+}
+
+.rating input[type="radio"] {
+    display: none;
+}
+
+.rating label {
+    font-size: 2rem;
+    color: gray;
+    cursor: pointer;
+}
+
+.rating input[type="radio"]:checked ~ label {
+    color: gold;
+}
+
+/* admin.css */
+
+.hero {
+    background: url('/static/img/hero.jpg') no-repeat center center;
+    background-size: cover;
+    color: white;
+    padding: 100px 0;
+}
+
+.feature img {
+    max-width: 50px;
+    margin-bottom: 15px;
+}
+
+.rating input[type="radio"] {
+    display: none;
+}
+
+.rating label {
+    font-size: 2rem;
+    color: gray;
+    cursor: pointer;
+}
+
+.rating input[type="radio"]:checked ~ label {
+    color: gold;
+}

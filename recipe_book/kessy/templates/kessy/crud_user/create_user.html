@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create User</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding-top: 50px;
+        }
+        .container {
+            max-width: 450px;
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-group label {
+            font-weight: bold;
+        }
+        .btn-secondary {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mb-4">Create User</h1>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="id_username">Username:</label>
+                {{ form.username }}
+                <small class="form-text text-muted">Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.</small>
+            </div>
+            <div class="form-group">
+                <label for="id_email">Email address:</label>
+                {{ form.email }}
+            </div>
+            <div class="form-group">
+                <label for="id_password1">Password:</label>
+                {{ form.password1 }}
+                <small class="form-text text-muted">Your password can't be too similar to your other personal information.</small>
+            </div>
+            <div class="form-group">
+                <label for="id_password2">Password confirmation:</label>
+                {{ form.password2 }}
+            </div>
+            <button type="submit" class="btn btn-primary">Create</button>
+            <a href="{% url 'crud_user' %}" class="btn btn-secondary">Cancel</a>
+            <br>
+            <a href="{% url 'crud_user' %}" class="btn btn-warning">Return</a>
+        </form>
+        
+    </div>
+</body>
+</html>

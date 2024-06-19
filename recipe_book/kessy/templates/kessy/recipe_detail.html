@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ recipe.title }}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>{{ recipe.title }}</h1>
+        <p>{{ recipe.description }}</p>
+        <p>{{ recipe.ingredients }}</p>
+        <p>{{ recipe.instructions }}</p>
+        <img src="{{ recipe.image.url }}" alt="{{ recipe.title }}" class="img-thumbnail">
+        <a href="{% url 'category_detail' recipe.category.id %}">Back to {{ recipe.category.name }}</a>
+    </div>
+</body>
+</html>

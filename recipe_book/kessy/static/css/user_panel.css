@@ -1,0 +1,59 @@
+.user-details {
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+}
+
+.star {
+    font-size: 2rem;
+    color: #ddd;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.star:hover,
+.star:hover ~ .star {
+    color: #ffc107;
+}
+
+
+.user-details {
+    border-left: 5px solid #007bff;
+}
+
+.list-group-item h3 {
+    font-weight: bold;
+}
+
+.rating {
+    font-size: 1.5rem;
+}
+
+.rating .star {
+    cursor: pointer;
+    color: #ddd;
+}
+
+.rating .star:hover,
+.rating .star:hover ~ .star {
+    color: #ffc107;
+}
+
+.rating .star.selected {
+    color: #ffc107;
+}

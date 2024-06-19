@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Recipe</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-4">
+        <h1>View Recipe</h1>
+        <p><strong>Title:</strong> {{ recipe.title }}</p>
+        <p><strong>Description:</strong> {{ recipe.description }}</p>
+        <p><strong>Ingredients:</strong> {{ recipe.ingredients }}</p>
+        <p><strong>Instructions:</strong> {{ recipe.instructions }}</p>
+        <p><strong>Category:</strong> {{ recipe.category.name }}</p>
+        {% if recipe.image %}
+            <img src="{{ recipe.image.url }}" alt="{{ recipe.title }}" class="img-thumbnail">
+        {% endif %}
+        <a href="{% url 'crud_recipe' %}" class="btn btn-secondary mt-3">Return</a>
+    </div>
+</body>
+</html>
